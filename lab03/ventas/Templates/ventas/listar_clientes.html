@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listado de Clientes</title>
+</head>
+<body>
+    <h1>Listado de Clientes</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Direcciones</th>
+                <th>Teléfonos</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+                <tr>
+                    <td>{{ cliente.codigo }}</td>
+                    <td>{{ cliente.nombre }}</td>
+                    <td>
+                        <ul>
+                            {% for direccion in cliente.direcciones.all %}
+                                <li>{{ direccion.calle }}, {{ direccion.ciudad }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            {% for telefono in cliente.telefonos.all %}
+                                <li>{{ telefono.numero }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

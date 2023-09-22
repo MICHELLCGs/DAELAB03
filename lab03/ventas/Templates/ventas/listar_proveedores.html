@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listado de Proveedores</title>
+</head>
+<body>
+    <h1>Listado de Proveedores</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+                <th>Página Web</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for proveedor in proveedores %}
+                <tr>
+                    <td>{{ proveedor.codigo }}</td>
+                    <td>{{ proveedor.nombre }}</td>
+                    <td>{{ proveedor.direccion.calle }}, {{ proveedor.direccion.ciudad }}</td>
+                    <td>{{ proveedor.telefono }}</td>
+                    <td><a href="{{ proveedor.pagina_web }}">{{ proveedor.pagina_web }}</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
